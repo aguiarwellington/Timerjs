@@ -1,41 +1,45 @@
 let sec = 0;
 let min = 0;
 let hr = 0; 
-let interval;
+let interval = null;
 
 function start(){
-    interval = setInterval(counter,10);
+    if (interval == null)
+        interval = setInterval(counter,10); 
 }
 
-function pause(){
-
-    clearInterval(interval);
-    
+function pause() {
+    if (interval !== null) {
+        clearInterval(interval);
+        interval = null; 
+    }
 }
 
-function stop(){
-    clearInterval(interval);
+
+function stop() {
+    if (interval !== null) { 
+        clearInterval(interval);
+        interval = null; 
+    }
     sec = 0;
     min = 0;
-    document.getElementById('timer').innerText = '00:00';
-    
+    hr = 0;
+    document.getElementById('timer').innerText = '00:00:00';
 }
 
 
-function counter (){
-    sec ++;
-
-    if(sec == 60){
-        min ++;
+function counter() {
+    sec++;
+    if (sec === 100) { 
         sec = 0;
-        if(min == 60){
+        min++;
+        if (min === 60) {
             min = 0;
-            hr ++;
-
+            hr++;
         }
     }
-
-    document.getElementById('timer').innerText = hr + ':' + min +':' + sec;
-    console.log('Starting!');
-
+    document.getElementById('timer').innerText =
+        String(hr).padStart(2, '0') + ':' +
+        String(min).padStart(2, '0') + ':' +
+        String(sec).padStart(2, '0');
 }
