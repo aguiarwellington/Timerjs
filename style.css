@@ -1,0 +1,38 @@
+body{
+    background-color: rgb(36, 34, 34);
+}
+
+#main{
+    text-align: center;
+    background-color:darkgrey;
+    width: 50%;
+    margin-left: 20%;
+    margin-top: 20%;
+    border-radius: 20px;
+    padding: 30px;
+    
+}
+
+button{
+    height: 2.5em;
+    width: 5.5em;
+    color: white;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.start-btn{
+    background-color: green;
+    
+
+}
+
+.pause-btn{
+    background-color:grey;
+}
+
+.stop-btn{
+    background-color: red;
+}
